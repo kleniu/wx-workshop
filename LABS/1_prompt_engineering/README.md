@@ -126,3 +126,38 @@ It's your turn now.
 - think about how to add positions to the names as well in JSON output.
 - optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
 
+### 1.2 - Generation
+Another prompt, this time for generating content. ATTENTION! this is just an example to show that GenAI can be harmful in the wrong hands. The name of the Bank and its product is for illustrative purposes. I hope that neither the transaction records nor the geolocation data will not be proposed as the feature (PII).
+
+Example prompt: 
+```
+<SYS>You are a very helpful system. You always give catchy marketing output. Use only the information in the CONTEXT section and follow the instructions in the INSTRUCTION section.</SYS>
+<CONTEXT>
+the Clever Bank releases a new credit card with the following features:
+a) the credit card is available to young people and is fully controlled by their parents or legal guardians
+b) each credit card transaction must be approved by the parent or legal guardian in the provided mobile application
+c) it is not possible to pay by card in vending machines selling unhealthy food
+d) the guardian of the person using the credit card has full transaction records with geolocation
+e) a credit card may contain a photo of the person using it, along with information about his or her age.
+f) the card is bright pink in color. Standard credit cards are always a different color.
+</CONTEXT>
+<INSTRUCTION>
+Write a tweet highlighting the features of a credit card that protect minors from using it for purposes prohibited by their parents or legal guardians. Use the information in the CONTEXT section
+</INSTRUCTION>
+```
+
+You should get the result as shown in the figure below. The instructor will explain to you details in particular:
+
+a) why the option "AI guardrails" is so extremely important
+b) why the upcoming watsonx.governance module is so necessary 
+
+<img src="pics/ss6 - usecase generation.png" width="80%" alt="prompt"/>
+
+It's your turn now.
+
+- switch on the "AI guardrails" and regenerate text - notice: the full transactions records and geolocation is removed from the tweet!
+<img src="pics/ss6 - usecase generation - AI guardrails on.png" width="80%" alt="prompt"/>
+
+- think about how to avoid improper usage of AI!
+- optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
+

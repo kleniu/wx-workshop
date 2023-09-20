@@ -85,3 +85,44 @@ Podsumowanie:
 
 Why do you think the LLAMA2 model worked with Polish? 
 [hint](./docs/Llama%202%20white%20paper.pdf)
+
+### 1.1 - Extraction
+Here we have an example of extracting information from text. The goal is to extract all dates along with information about what they refer to and the names of people mentioned in the text.
+
+To raise the bar a bit and satisfy developers writing microservices in the backend, we want to obtain the result in the JSON format.
+
+```
+<SYS>You are a very helpful system. You always give correct JSON output. Use only the information in the CONTEXT section and follow the instructions in the INSTRUCTION section.</SYS>
+<CONTEXT>
+NEW YORK, Sept. 18, 2023 /PRNewswire/ -- To help close the global artificial intelligence (AI) skills gap, today IBM (NYSE: IBM) announced a commitment to train two million learners in AI by the end of 2026, with a focus on underrepresented communities. To achieve this goal at a global scale, IBM is expanding AI education collaborations with universities globally, collaborating with partners to deliver AI training to adult learners, and launching new generative AI coursework through IBM SkillsBuild. This will expand upon IBM's existing programs and career-building platforms to offer enhanced access to AI education and in-demand technical roles.  
+According to a recent global study conducted by IBM Institute of Business Value, surveyed executives estimate that implementing AI and automation will require 40% of their workforce to reskill over the next three years, mostly those in entry-level positions. This further reinforces that generative AI is creating a demand for new roles and skills.
+"AI skills will be essential to tomorrow's workforce," said Justina Nixon-Saintil, IBM Vice President & Chief Impact Officer. "That's why we are investing in AI training, with a commitment to reach two million learners in three years, and expanding IBM SkillsBuild to collaborate with universities and nonprofits on new generative AI education for learners all over the world."
+</CONTEXT>
+<INSTRUCTION>
+Create the JSON doc with names, and dates provided in CONTEXT section like following example JSON output
+JSON: 
+{
+"names: [ "John Doe", "Jan Kowalski", ...],
+dates: [ { "description" : "article publication date", "date" : "2023.01.23" }, ... ]
+}
+</INSTRUCTION>
+
+JSON: 
+
+```
+
+You should get the result as shown in the figure below. The instructor will explain to you details in particular:
+
+a) why dates are interpreted correctly despite the fact that they are given in incomplete form ("by the end of 2026" => "2026-12-31")
+b) how to force content to be generated in the required format
+c) why the date format differ in output ([hint](./docs/HINT_date_format.md))
+
+<img src="pics/ss5 - usecase extraction.png" width="80%" alt="prompt"/>
+
+<br>
+It's your turn now.
+
+- try changing the content of the context section
+- think about how to add positions to the names as well in JSON output.
+- optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
+

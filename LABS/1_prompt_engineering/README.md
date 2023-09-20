@@ -55,8 +55,11 @@ Summary:
 You should get the result as shown in the figure below. The instructor will explain to you details in particular:
 
 a) how the LLM output is delivered
+
 b) how the LLM model is parameterized
+
 c) how big the prompt can be, how big the answer will be and how long it took to generate the content.
+
 
 <img src="pics/ss4 - usecase summarisation.png" width="80%" alt="prompt"/>
 
@@ -114,8 +117,11 @@ JSON:
 You should get the result as shown in the figure below. The instructor will explain to you details in particular:
 
 a) why dates are interpreted correctly despite the fact that they are given in incomplete form ("by the end of 2026" => "2026-12-31")
+
 b) how to force content to be generated in the required format
+
 c) why the date format differ in output ([hint](./docs/HINT_date_format.md))
+
 
 <img src="pics/ss5 - usecase extraction.png" width="80%" alt="prompt"/>
 
@@ -149,6 +155,7 @@ Write a tweet highlighting the features of a credit card that protect minors fro
 You should get the result as shown in the figure below. The instructor will explain to you details in particular:
 
 a) why the option "AI guardrails" is so extremely important
+
 b) why the upcoming watsonx.governance module is so necessary 
 
 <img src="pics/ss6 - usecase generation.png" width="80%" alt="prompt"/>
@@ -159,5 +166,41 @@ It's your turn now.
 <img src="pics/ss6 - usecase generation - AI guardrails on.png" width="80%" alt="prompt"/>
 
 - think about how to avoid improper usage of AI!
+- optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
+
+### 1.3 - Classify
+Let's do some classifications. Let's assess the sentiment. 
+
+Example prompt:
+```
+<SYS>You are a very helpful system. You always provide one word answer. Use only the information in the CONTEXT section and follow the instructions in the INSTRUCTION section.</SYS>
+<CONTEXT>
+Our experienced employee found himself in a surprising situation, receiving a  request for quotation from a client in a language he did not understand, and with the short response deadline for the next business day. Preparing a solution and describing it in a way that was satisfactory for the client turned out to be demanding beyond the available competences. The competition won the tender, so the entire multi-million-dollar deal is gone (bye bye), which puts into question the ability of our company to continue operating.
+</CONTEXT>
+<INSTRUCTION>
+what is the sentiment of the statement in the CONTEXT section? 
+a) positive
+b) negative 
+c) neutral
+</INSTRUCTION>
+
+sentiment: 
+```
+
+You should get the result as shown in the figure below. The instructor will explain to you details in particular:
+
+a) why it's good to narrow the generated output (hint: costs) 
+
+b) why the response is much quicker
+
+
+
+<img src="pics/ss7 - usecase clasification.png" width="80%" alt="prompt"/>
+
+<br>
+It's your turn now.
+
+- try changing the content of the context section 
+- try to change class names 
 - optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
 

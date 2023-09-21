@@ -94,7 +94,9 @@ podman ps -a
 
 If the result of the command in the STATUS column shows the UP value, it means the container has started correctly.
 
+Grab the prepared Jupyter Notebook - click the following  link and then "download raw file" button [prompt_engineering_challenge.ipynb](./wx_prompts.ipynb "download") 
+
 Now, in any WEB browser, open the URL: http://localhost:8888 
-In the top right corner of the browser, you will find the ```Upload``` button, press it to upload the prepared jupyter notebook [prompt_engineering_challenge.ipynb](./wx_prompts.ipynb "download")
+In the top right corner of the browser, you will find the ```Upload``` button, press it to upload the prepared jupyter notebook 
 
 After loading the notebook, you are ready to work.

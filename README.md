@@ -5,6 +5,7 @@ During the lab, you will learn how to interact with watsonx.ai module's Large La
 
 ## Agenda
 1. Basics of Large Language Models (LLM) and prompt engineering [Lab 1](/LABS/1_prompt_engineering/README.md)
+1. Python SDK for watsonx [Lab 2](/LABS/2_prompt_engineering_via_code/README.md)
 
 If you have any questions, please contact the lab creators: <br>
 Joanna Frankiewicz (joanna.frankiewicz@ibm.com) <br>

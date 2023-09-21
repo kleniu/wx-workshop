@@ -25,11 +25,11 @@ Well, we're ready to start.
 
 We will test five basic use cases:
 
-**Summarization** - Summarizing texts to key takeaways
-**Extraction** - Extract structured insights from unstructured data
-**Generate** - Generate text using Generative AI :) 
-**Classify** - topics, sentiments etc.
-**Question answering** - answer question to context provided in the prompt
+**Summarization** - Summarizing texts to key takeaways <br>
+**Extraction** - Extract structured insights from unstructured data <br>
+**Generate** - Generate text using Generative AI :) <br>
+**Classify** - topics, sentiments etc. <br>
+**Question answering** - answer question to context provided in the prompt <br>
 
 ### 1.1 - Summarization
 Here is the simple prompt which summarize information provided in context. 
@@ -89,7 +89,7 @@ Podsumowanie:
 Why do you think the LLAMA2 model worked with Polish? 
 [hint](./docs/Llama%202%20white%20paper.pdf)
 
-### 1.1 - Extraction
+### 1.2 - Extraction
 Here we have an example of extracting information from text. The goal is to extract all dates along with information about what they refer to and the names of people mentioned in the text.
 
 To raise the bar a bit and satisfy developers writing microservices in the backend, we want to obtain the result in the JSON format.
@@ -132,7 +132,7 @@ It's your turn now.
 - think about how to add positions to the names as well in JSON output.
 - optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
 
-### 1.2 - Generation
+### 1.3 - Generation
 Another prompt, this time for generating content. ATTENTION! this is just an example to show that GenAI can be harmful in the wrong hands. The name of the Bank and its product is for illustrative purposes. I hope that neither the transaction records nor the geolocation data will not be proposed as the feature (PII).
 
 Example prompt: 
@@ -168,7 +168,7 @@ It's your turn now.
 - think about how to avoid improper usage of AI!
 - optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
 
-### 1.3 - Classify
+### 1.4 - Classify
 Let's do some classifications. Let's assess the sentiment. 
 
 Example prompt:
@@ -204,3 +204,86 @@ It's your turn now.
 - try to change class names 
 - optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
 
+### 1.5 - Q&A
+And finally, prompts for generating answers for questions to the information provided in the context. Let's start with the LLAMA2 model and then move on to a sample prompt for the MPT model
+
+Example prompt to LAMA2:
+```
+<SYS>You are a very helpful system. You always give concise answers in a few sentences. Use only the information in the CONTEXT section and follow the instructions in the INSTRUCTION section.</SYS>
+<CONTEXT>
+NEW YORK, Sept. 18, 2023 /PRNewswire/ -- To help close the global artificial intelligence (AI) skills gap, today IBM (NYSE: IBM) announced a commitment to train two million learners in AI by the end of 2026, with a focus on underrepresented communities. To achieve this goal at a global scale, IBM is expanding AI education collaborations with universities globally, collaborating with partners to deliver AI training to adult learners, and launching new generative AI coursework through IBM SkillsBuild. This will expand upon IBM's existing programs and career-building platforms to offer enhanced access to AI education and in-demand technical roles.  
+According to a recent global study conducted by IBM Institute of Business Value, surveyed executives estimate that implementing AI and automation will require 40% of their workforce to reskill over the next three years, mostly those in entry-level positions. This further reinforces that generative AI is creating a demand for new roles and skills.
+"AI skills will be essential to tomorrow's workforce," said Justina Nixon-Saintil, IBM Vice President & Chief Impact Officer. "That's why we are investing in AI training, with a commitment to reach two million learners in three years, and expanding IBM SkillsBuild to collaborate with universities and nonprofits on new generative AI education for learners all over the world."
+</CONTEXT>
+<INSTRUCTION>
+Answer the following Question: what does Justina Nixon-Saintil say?
+</INSTRUCTION>
+
+Answer:
+
+```
+
+You should get the result as shown in the figure below. The instructor will explain to you details in particular:
+
+a) what is the stop sequence 
+
+b) why the generation time is so big?
+
+
+
+<img src="pics/ss8 - usecase Q&A llama2.png" width="80%" alt="prompt"/>
+
+<br>
+
+Let's try smaller model.
+
+Example prompt to MPT:
+```
+Context:
+To germinate tomato seeds, a soil temperature of 22–25 °C is needed. The seeds are placed at a depth of 0.5 to 1 cm below the soil level. After tomato emergence, it is recommended to lower the soil temperature to 16 to 20 degrees Celsius. The plant requires permeable, warm and humus-rich soil, as well as sunny and wind-protected places (near a wall or hedge).
+
+Question:
+Is it good to plant tomatoes in a sunny place?
+
+Answer:
+No, tomatoes prefer places that are not exposed to sunlight. Tomato bushes should be planted in places that are not exposed to sunlight and are protected from the wind. A good place is to plant tomato bushes against a wall or hedge.
+
+Context:
+Wankel engine – an internal combustion engine in which a piston rotates inside a cylinder. Called a rotary piston engine and also colloquially called a Wankel engine, after the designer's surname. This engine was patented by Felix Wankel. In this engine, a piston in a shape similar to a triangle (Reuleaux triangle with slightly convex sides) (1), eccentrically placed in the epitrochoidal body (2), rotates, creating chambers: suction, compression, expansion (work) and exhaust.
+
+Question:
+What was Feliks Wankel famous for?
+
+Answer:
+Feliks Wankel was a famous designer of a new type of engine called the Wankel engine. The Wankel engine is an internal combustion engine that uses a piston rotating inside a cylinder
+
+Context:
+NEW YORK, Sept. 18, 2023 /PRNewswire/ -- To help close the global artificial intelligence (AI) skills gap, today IBM (NYSE: IBM) announced a commitment to train two million learners in AI by the end of 2026, with a focus on underrepresented communities. To achieve this goal at a global scale, IBM is expanding AI education collaborations with universities globally, collaborating with partners to deliver AI training to adult learners, and launching new generative AI coursework through IBM SkillsBuild. This will expand upon IBM's existing programs and career-building platforms to offer enhanced access to AI education and in-demand technical roles.  
+According to a recent global study conducted by IBM Institute of Business Value, surveyed executives estimate that implementing AI and automation will require 40% of their workforce to reskill over the next three years, mostly those in entry-level positions. This further reinforces that generative AI is creating a demand for new roles and skills.
+"AI skills will be essential to tomorrow's workforce," said Justina Nixon-Saintil, IBM Vice President & Chief Impact Officer. "That's why we are investing in AI training, with a commitment to reach two million learners in three years, and expanding IBM SkillsBuild to collaborate with universities and nonprofits on new generative AI education for learners all over the world."
+
+Question:
+what does Justina Nixon-Saintil say?
+
+Answer:
+
+```
+
+You should get the result as shown in the figure below. The instructor will explain to you details in particular:
+
+
+a) why the generation of text is much quicker?
+
+b) what is few-shot prompting?
+
+
+
+<img src="pics/ss8 - usecase Q&A mpt.png" width="80%" alt="prompt"/>
+
+<br>
+It's your turn now.
+
+- try changing the content of the context section 
+- try to use MPT prompt template with LLAMA2 model
+- try to remove stop sequence in MPT Prompt
+- optionally: check how the prompt will work if you provide instructions, context and content of the `<SYS></SYS>` section in a language other than English.
